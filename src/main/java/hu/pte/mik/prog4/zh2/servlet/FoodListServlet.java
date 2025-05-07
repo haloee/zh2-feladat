@@ -14,7 +14,7 @@ public class FoodListServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("foods", this.foodService.findAll());
+        req.setAttribute("foods", this.foodService.listAll());
         req.getRequestDispatcher("/foodList.jsp")
                 .forward(req, resp);
     }

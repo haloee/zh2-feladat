@@ -13,7 +13,7 @@ public class FoodService {
         this.foodRepository = new FoodRepository();
     }
 
-    public List<FoodEntity> findAll() {
+    public List<FoodEntity> listAll() {
         return this.foodRepository.listAll();
     }
 
@@ -21,12 +21,15 @@ public class FoodService {
         return this.foodRepository.findById(id);
     }
 
-    public FoodEntity save(Long id, String restaurantName, String foodName, String price) {
-        return this.foodRepository.save(new FoodEntity(id, restaurantName, foodName, price));
+    public FoodEntity save(FoodEntity food) {
+        return this.foodRepository.save(food);
+    }
+
+    public FoodEntity update(FoodEntity food) {
+        return this.foodRepository.update(food);
     }
 
     public long getFoodPortion(String foodId) {
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException(); // 6. feladathoz fog kelleni
     }
-
 }

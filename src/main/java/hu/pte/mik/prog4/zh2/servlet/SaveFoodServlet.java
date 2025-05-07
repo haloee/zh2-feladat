@@ -1,5 +1,6 @@
 package hu.pte.mik.prog4.zh2.servlet;
 
+import hu.pte.mik.prog4.zh2.entity.FoodEntity;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -32,7 +33,8 @@ public class SaveFoodServlet extends HttpServlet {
         var restaurantName = req.getParameter("restaurantName");
         var foodName = req.getParameter("foodName");
         var price = req.getParameter("price");
-        this.foodService.save(id, restaurantName, foodName, price);
+        var food = new FoodEntity(id, restaurantName, foodName, price);
+        this.foodService.save(food);
 
         resp.sendRedirect("food-list");
     }
